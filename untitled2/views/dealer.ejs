@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/stylesheets/tail.css"  rel="stylesheet"/>
+
+
+</head>
+<body onload="main()">
+<div class="wrap"></div>
+
+<div >
+    <label class="top"><a href="/main" class="navigation">首页</a>  |  <a href="/" class="navigation">退出</a></label>
+</div>
+
+<!--<div class="main"><a class="navigation" href="/main"><label>首页</label></a> </div>-->
+<!--<div class="admin"><a class="navigation" href="/"><label>退出登录</label></a> </div>-->
+<!--<a href="/main"><img src="../images/icn/shouye.png">首页</a>-->
+<div class="title"></div>
+<div class="txt">
+    <form action="/dealer/search" method="get">
+        <table class="theme" >
+            <caption class="table-name"><p>经销商管理系统</p></caption>
+            <tr>
+                <td>
+                    <select name="select_change" >
+                        <option value="all" name="all" selected>请选择查询方式</option>
+                        <option value="id"  name="id">经销商编号</option>
+                        <option value="name" name="name">公司名称</option>
+                    </select>
+                </td>&nbsp;
+                <td><input type="text" name="text_change" class="text_input"/></td>
+                <td><input type="submit" value="搜索" class="la"/></td>
+
+                <td><a href="/dealer/add_dea"><img src="../images/ico-img/tianjia.png"></a></td>
+            </tr>
+        </table>
+
+
+
+
+        <table  >
+            <tr>
+                <th width="10%" >经销商编号</th>
+                <th width="10%">联系人</th>
+                <th width="10%">联系电话</th>
+                <th width="20%">公司名称</th>
+                <th width="30%">公司地址</th>
+                <th width="10%">操作</th>
+            </tr>
+
+            <tr>
+                <% if (datas.length) { %>
+                <% datas.forEach(function(dealer){ %>
+                <td><p><%= dealer.d_id %></p></td>
+                <td><p><%= dealer.d_pname %></p></td>
+                <td><p><%= dealer.d_ptel %></p></td>
+                <td><p><%= dealer.d_name %></p></td>
+                <td><p><%= dealer.pr_ad %></p></td>
+                <td><a href="/dealer/delete/<%= dealer.d_id %>"> 删除</a>&nbsp;&nbsp;<a href="/dealer/toUpdate/<%= dealer.d_id %>">修改</a></td>
+            </tr>
+            <% }) %>
+            <% } %>
+        </table>
+
+    </form>
+</div>
+</body>
+
+</html>

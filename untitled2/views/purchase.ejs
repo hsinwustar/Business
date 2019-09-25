@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>采购管理界面</title>
+    <link rel='stylesheet' href='/stylesheets/pss.css' />
+
+  </head>
+  <body>
+  <!--<div class="container-fluid">-->
+    <!--<div class="row-fluid">-->
+      <!--<div class="span2">-->
+        <!--aaaa-->
+        <!--&lt;!&ndash;Sidebar content&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="span10">-->
+        <!--oooo-->
+        <!--&lt;!&ndash;Body content&ndash;&gt;-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div>
+    <img src="../images/p-img/logo.png" width="1000px"><label class="top"><a href="/main">首页</a>  |  <a href="/">退出</a></label>
+  </div>
+  <div class="d-all">
+    <div class="d-one">
+      <div class="d-three">
+        <form action="/purchase/add" method="post">
+          <label>采购编号：</label><input type="text" name="pu_id" value="" > <br><br>
+          <label>采购日期：</label><input type="text" name="pu_date" value="" > <br><br>
+          <label>采购价格：</label><input type="text" name="pu_price" value="" > <br><br>
+          <label>采购数量：</label><input type="text" name="pu_number" value="" > <br><br>
+          <label>员工编号：</label><input type="text" name="s_id" value="" > <br><br>
+          <label>商品编号：</label><input type="text" name="pr_id" value="" > <br><br>
+          <label>供货商编号：</label><input type="text" name="b_id" value=""> <br><br>
+          <input type="submit" value="新增" id="add">
+          <!--<input type="submit" value="查询" id="search">-->
+          <!--<a href="/purchase/pu_add"><input type="button" value="新增" id="add"></a>-->
+        </form>
+        <form action="/purchase/search" method="get">
+          <select name="select_change">
+            <option value="none" name="none" selected>请选择查询方式</option>
+            <option value="pu_id" name="pu_id">采购编号</option>
+            <option value="pu_date" name="pu_date">采购日期</option>
+            <option value="pu_price" name="pu_price">采购价格</option>
+            <option value="pu_number" name="pu_number">采购数量</option>
+            <option value="s_id" name="s_id">员工编号</option>
+            <option value="pr_id" name="pr_id">商品编号</option>
+            <option value="b_id" name="b_id">供货商编号</option>
+          </select>
+          <input type="text" name="text_change" class="text_input"/>
+          <input type="submit" value="查询" id="search">
+        </form>
+      </div>
+    </div>
+    <div class="content">
+        <table cellspacing="0" >
+          <tr class="tr-title">
+            <th >采购编号</th>
+            <th >操作</th>
+            <th >采购日期</th>
+            <th >采购价格</th>
+            <th >采购数量</th>
+            <th>员工编号</th>
+            <th>商品编号</th>
+            <th >供货商编号</th>
+          </tr>
+          <% if (datas.length) { %>
+          <% datas.forEach(function(purchase){ %>
+          <tr>
+            <td><%= purchase.pu_id %></td>
+            <td><a href="/purchase/pu_del/<%= purchase.pu_id %>"><img src="../images/p-img/del.png" class="img1" alt="删除" title="删除"/></a>&nbsp;&nbsp;<a href="/purchase/toUpdate/<%= purchase.pu_id %>"><img src="../images/p-img/change.png"  class="img2" alt="修改" title="修改"/></a></td>
+            <td><%= purchase.pu_date %></td>
+            <td><%= purchase.pu_price %></td>
+            <td><%= purchase.pu_number %></td>
+            <td><%= purchase.s_id %></td>
+            <td><%= purchase.pr_id %></td>
+            <td><%= purchase.b_id %></td>
+          </tr>
+          <% }) %>
+          <% } %>
+        </table>
+    </div>
+  </div>
+  </body>
+</html>

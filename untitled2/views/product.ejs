@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/stylesheets/tail.css"  rel="stylesheet"/>
+    <script type="text/javascript" src="javascripts/product.js"></script>
+
+</head>
+<body onload="main()">
+<div class="wrap"></div>
+
+<div >
+    <label class="top"><a href="/main" class="navigation">首页</a>  |  <a href="/" class="navigation">退出</a></label>
+</div>
+
+<!--<div class="main"><a class="navigation" href="/main"><label>首页</label></a> </div>-->
+<!--<div class="admin"><a class="navigation" href="/"><label>退出登录</label></a> </div>-->
+<!--<a href="/main"><img src="../images/icn/shouye.png">首页</a>-->
+<div class="title"></div>
+<div class="txt">
+    <form action="/product/search" method="get">
+        <table class="theme" >
+            <caption class="table-name"><p>商品管理系统</p></caption>
+            <tr>
+                <td>
+            <select name="select_change" >
+                <option value="all" name="all" selected>请选择查询方式</option>
+                <option value="id"  name="id">商品标识</option>
+                <option value="forms" name="forms">商品种类</option>
+                <option value="name" name="name">商品名称</option>
+            </select>
+                </td>&nbsp;
+                <td><input type="text" name="text_change" class="text_input"/></td>
+                <td><input type="submit" value="搜索" class="la"/></td>
+
+                <td><a href="/product/add_pro"><img src="../images/ico-img/tianjia.png"></a></td>
+            </tr>
+        </table>
+
+
+        <table  >
+            <tr>
+                <th width="10%" >商品标识</th>
+                <th width="10%">商品种类</th>
+                <th width="15%">商品名称</th>
+                <th width="10%">商品价格</th>
+                <th width="10%">商品库存</th>
+                <th width="10%">商品出产地</th>
+                <th width="15%">操作</th>
+            </tr>
+
+            <tr>
+                <% if (datas.length) { %>
+                <% datas.forEach(function(products){ %>
+                <td><%= products.pr_id %></td>
+
+                <td><%= products.pr_forms %></td>
+                <td><%= products.pr_name %></td>
+                <td><%= products.pr_pri %></td>
+                <td><%= products.pr_num %></td>
+                <td><%= products.pr_ad %></td>
+                <td><a href="/product/delete/<%= products.pr_id %>"> 删除</a>&nbsp;&nbsp;<a href="/product/toUpdate/<%= products.pr_id %>">修改</a></td>
+            </tr>
+            <% }) %>
+            <% } %>
+        </table>
+
+    </form>
+</div>
+</body>
+
+</html>

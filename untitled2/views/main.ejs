@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/stylesheets/main.css"  rel="stylesheet"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
+</head>
+<body onload="main()" >
+
+<div class="wrap"></div>
+<div class="wrap"></div>
+<div class="wrap"></div>
+<div class="wrap"></div>
+<div class="wrap"></div>
+<div class="wrap"></div>
+<div >
+    <!--<a href="/" class="navigation_c"><img class="top" src="../images/icn/daohangshouye.png"  alt="退出" title="退出"/></a>-->
+    <a href="/" class="navigation">退出</a>
+</div>
+<div class="content" >
+    <ul ><!--无序列表-->
+
+        <li class="list">
+            <div class="text">
+                <p class="textlist" >采购管理</p>
+            </div>
+        </li>
+        <li class="list">
+            <div class="text" id="3">
+                <p class="textlist">销售管理</p>
+            </div>
+        </li>
+        <li class="list" >
+            <div class="text" >
+                <p class="textlist" >供应商管理</p>
+            </div>
+        </li>
+        <li class="list" >
+            <div class="text" >
+                <p class="textlist" >经销商管理</p>
+            </div>
+        </li>
+        <li class="list">
+            <div class="text">
+                <p class="textlist" >商品管理</p>
+            </div>
+        </li>
+        <li class="list">
+
+            <div class="text">
+
+                <p class="textlist" >职员管理</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var $li=$(".list");
+    $li.hover(function(){
+        var index=$(this).index();
+//点击到那个，this就指向谁
+        $(this).stop().animate({
+            width:"589px"
+        },600).siblings("li").stop().animate({
+            width:"100px"
+        },600);
+        $(".wrap").eq(index).fadeIn().siblings(".wrap").fadeOut();
+    })
+</script>
+
+</body>
+</html>

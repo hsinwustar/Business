@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/update.css' />
+</head>
+<body>
+<div class="container">
+    <div >
+        <img src="/images/p-img/logo.png" width="1000px"><label class="top"><a href="/main">首页</a>  |  <a href="/">退出</a></label>
+    </div>
+    <div class="center">
+<form action="/product/update_pro" method="post">
+    <table>
+        <tr>
+            <td><label>商品标识:</label></td>
+            <td><input type="text" name="pr_id" value="<%= datas[0].pr_id %>"></td>
+        </tr>
+        <tr>
+            <td><label>商品种类:</label></td>
+            <td><input type="text" name="pr_forms" value="<%= datas[0].pr_forms %>"></td>
+        </tr>
+        <tr>
+            <td><label>商品名称:</label></td>
+            <td><input type="text" name="pr_name" value="<%= datas[0].pr_name %>"></td>
+        </tr>
+        <tr>
+            <td><label>商品价格:</label></td>
+            <td><input type="text" name="pr_pri" value="<%= datas[0].pr_pri %>"></td>
+        </tr>
+        <tr>
+            <td><label>商品库存:</label></td>
+            <td><input type="text" name="pr_num" value="<%= datas[0].pr_num %>"></td>
+        </tr>
+        <tr>
+            <td><label>商品出产地:</label></td>
+            <td><input type="text" name="pr_ad" value="<%= datas[0].pr_ad %>"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="修改" id="update"></td></tr>
+    </table>
+</form>
+    </div>
+</div>
+</body>
+</html>

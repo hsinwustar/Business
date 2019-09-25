@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+
+    <link href="/stylesheets/login.css"  rel="stylesheet"/>
+</head>
+<body>
+
+<div class="login_img">
+    <!--<img src="images\sign_up.jpg"/>-->
+</div>
+
+<div class="login_txt">
+    <!--<form method="post" action="login.js">-->
+    <form method="post" action="/main">
+        <p><label class="pp">用户名</label><input type="text" name="user" class="text_input"/></p>
+        <p><label class="pp">密码</label><input type="password" name="pwd" class="text_input"/></p>
+        <div id="login_control">
+            <input type="submit" id="btn_login" value="登录"/>
+            <input type="reset" id="btn_login" value="重置"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

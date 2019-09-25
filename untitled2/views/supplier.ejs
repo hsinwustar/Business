@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供货商管理页面</title>
+    <link rel='stylesheet' href='/stylesheets/pss.css' />
+
+</head>
+<body>
+<div class="logo">
+    <img src="../images/p-img/logo.png" width="1000px"><label class="top"><a href="/main">首页</a>  |  <a href="/">退出</a></label>
+</div>
+<div class="d-all">
+    <div class="d-one">
+        <div class="d-three">
+            <form action="/supplier/add" method="post">
+                <label>供货商编号：</label><input type="text" name="b_id" value="" > <br><br>
+                <label>公司名称：</label><input type="text" name="b_name" value="" > <br><br>
+                <label>公司地址：</label><input type="text" name="b_address" value="" > <br><br>
+                <label>公司电话：</label><input type="text" name="b_tel" value="" > <br><br>
+                <label>联系人：</label><input type="text" name="b_person" value="" > <br><br>
+                <input type="submit" value="新增" id="add">
+                <!--<input type="submit" value="查询" id="search">-->
+                <!--<a href="/purchase/pu_add"><input type="button" value="新增" id="add"></a>-->
+            </form>
+            <form action="/supplier/search" method="get">
+                <select name="select_change">
+                    <option value="none" name="none" selected>请选择查询方式</option>
+                    <option value="b_id" name="b_id">供货商编号</option>
+                    <option value="b_name" name="b_name">公司名称</option>
+                    <option value="b_address" name="b_address">公司地址</option>
+                    <option value="b_tel" name="b_tel">公司电话</option>
+                    <option value="b_person" name="b_person">联系人</option>
+                </select>
+                <input type="text" name="text_change" class="text_input"/>
+                <input type="submit" value="查询" id="search">
+            </form>
+        </div>
+    </div>
+    <div class="content">
+        <table cellspacing="0" >
+            <tr class="tr-title">
+                <th >供货商编号</th>
+                <th >操作</th>
+                <th >公司名称</th>
+                <th >公司地址</th>
+                <th >公司电话</th>
+                <th >联系人</th>
+            </tr>
+            <% if (datas.length) { %>
+            <% datas.forEach(function(supplier){ %>
+            <tr>
+                <td><%= supplier.b_id %></td>
+                <td><a href="/supplier/b_del/<%= supplier.b_id %>"><img src="../images/p-img/del.png" class="img1" alt="删除" title="删除"/></a>&nbsp;&nbsp;<a href="/supplier/toUpdate/<%= supplier.b_id %>"><img src="../images/p-img/change.png"  class="img2" alt="修改" title="修改"/></a></td>
+                <td><%= supplier.b_name %></td>
+                <td><%= supplier.b_address %></td>
+                <td><%= supplier.b_tel %></td>
+                <td><%= supplier.b_person %></td>
+            </tr>
+            <% }) %>
+            <% } %>
+        </table>
+    </div>
+</div>
+</body>
+</html>

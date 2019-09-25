@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>销售管理界面</title>
+    <link rel='stylesheet' href='/stylesheets/pss.css' />
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="logo">
+    <img src="../images/p-img/logo.png" width="1000px"><label class="top"><a href="/main">首页</a>  |  <a href="/">退出</a></label>
+</div>
+<div class="d-all">
+    <div class="d-one">
+        <div class="d-three">
+            <form action="/sell/add" method="post">
+                <label>销售编号：</label><input type="text" name="se_id" value="" > <br><br>
+                <label>销售日期：</label><input type="text" name="se_date" value="" > <br><br>
+                <label>销售价格：</label><input type="text" name="se_price" value="" > <br><br>
+                <label>销售数量：</label><input type="text" name="se_number" value="" > <br><br>
+                <label>员工编号：</label><input type="text" name="s_id" value="" > <br><br>
+                <label>商品编号：</label><input type="text" name="pr_id" value="" > <br><br>
+                <label>供货商编号：</label><input type="text" name="b_id" value=""> <br><br>
+                <input type="submit" value="新增" id="add">
+                <!--<input type="submit" value="查询" id="search">-->
+                <!--<a href="/purchase/pu_add"><input type="button" value="新增" id="add"></a>-->
+            </form>
+            <form action="/sell/search" method="get">
+                <select name="select_change">
+                    <option value="none" name="none" selected>请选择查询方式</option>
+                    <option value="se_id" name="se_id">销售编号</option>
+                    <option value="se_date" name="se_date">销售日期</option>
+                    <option value="se_price" name="se_price">销售价格</option>
+                    <option value="se_number" name="se_number">销售数量</option>
+                    <option value="s_id" name="s_id">员工编号</option>
+                    <option value="pr_id" name="pr_id">商品编号</option>
+                    <option value="b_id" name="b_id">供货商编号</option>
+                </select>
+                <input type="text" name="text_change" class="text_input"/>
+                <input type="submit" value="查询" id="search">
+            </form>
+        </div>
+    </div>
+    <div class="content">
+        <table cellspacing="0" >
+            <tr class="tr-title">
+                <th >销售编号</th>
+                <th >操作</th>
+                <th >销售日期</th>
+                <th >销售价格</th>
+                <th >销售数量</th>
+                <th>员工编号</th>
+                <th>商品编号</th>
+                <th >供货商编号</th>
+            </tr>
+            <% if (datas.length) { %>
+            <% datas.forEach(function(sell){ %>
+            <tr>
+                <td><%= sell.se_id %></td>
+                <td><a href="/sell/se_del/<%= sell.se_id %>"><img src="../images/p-img/del.png" class="img1" alt="删除" title="删除"/></a>&nbsp;&nbsp;<a href="/sell/toUpdate/<%= sell.se_id %>"><img src="../images/p-img/change.png"  class="img2" alt="修改" title="修改"/></a></td>
+                <td><%= sell.se_date %></td>
+                <td><%= sell.se_price %></td>
+                <td><%= sell.se_number %></td>
+                <td><%= sell.s_id %></td>
+                <td><%= sell.pr_id %></td>
+                <td><%= sell.b_id %></td>
+            </tr>
+            <% }) %>
+            <% } %>
+        </table>
+    </div>
+</div>
+</body>
+</html>

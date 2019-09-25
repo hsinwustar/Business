@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+    <link rel='stylesheet' href='/stylesheets/update.css' />
+</head>
+<body>
+<div class="container">
+    <div >
+        <img src="/images/p-img/logo.png" width="1000px"><label class="top"><a href="/main">首页</a>  |  <a href="/">退出</a></label>
+    </div>
+<div class="center">
+    <form action="/purchase/pu_update" method="post">
+        <table>
+            <tr>
+                <td><label>采购编号：</label></td>
+                <td><input type="text" name="pu_id" value="<%= datas[0].pu_id %>"></td>
+            </tr>
+            <tr>
+                <td><label>采购日期：</label></td>
+                <td><input type="text" name="pu_date" value="<%= datas[0].pu_date %>"></td>
+            </tr>
+            <tr>
+                <td><label>采购价格：</label></td>
+                <td><input type="text" name="pu_price" value="<%= datas[0].pu_price %>"></td>
+            </tr>
+            <tr>
+                <td><label>采购数量：</label></td>
+                <td><input type="text" name="pu_number" value="<%= datas[0].pu_number %>"></td>
+            </tr>
+            <tr>
+                <td><label>员工编号：</label></td>
+                <td><input type="text" name="s_id" value="<%= datas[0].s_id %>"></td>
+            </tr>
+            <tr>
+                <td><label>商品编号：</label></td>
+                <td><input type="text" name="pr_id" value="<%= datas[0].pr_id %>"></td>
+            </tr>
+            <tr>
+                <td><label>供货商编号：</label></td>
+                <td><input type="text" name="b_id" value="<%= datas[0].b_id %>"></td>
+            </tr>
+            <tr><td colspan="2"><input type="submit" value="提交" id="update"></td></tr>
+        </table>
+    </form>
+</div>
+</div>
+</body>
+</html>

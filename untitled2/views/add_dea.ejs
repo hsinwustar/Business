@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/update.css' />
+</head>
+<body>
+<div class="container">
+    <div >
+        <img src="/images/p-img/logo.png" width="1000px"><label class="top"><a href="/main">首页</a>  |  <a href="/">退出</a></label>
+    </div>
+    <div class="center">
+<form action="/dealer/add_dea" method="post">
+    <table>
+        <tr>
+            <td><label>经销商编号:</label></td>
+            <td><input type="text" name="d_id"></td>
+        </tr>
+        <tr>
+            <td><label>联系人:</label></td>
+            <td><input type="text" name="d_pname"></td>
+        </tr>
+        <tr>
+            <td><label>联系人电话:</label></td>
+            <td><input type="text" name="d_ptel"></td>
+        </tr>
+        <tr>
+            <td><label>公司名称:</label></td>
+            <td><input type="text" name="d_name"></td>
+        </tr>
+        <tr>
+            <td><label>公司地址:</label></td>
+            <td><input type="text" name="pr_ad"></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="添加" id="update"></td></tr>
+    </table>
+</form>
+    </div>
+</div>
+</body>
+</html>

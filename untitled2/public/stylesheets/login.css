@@ -1,0 +1,83 @@
+body {
+    background-image: url("../images/p-img/milu.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+li{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+/*.login_img{*/
+/*background-size: 100%;*/
+/*background-repeat: no-repeat;*/
+/*}*/
+.login_txt{
+    /*margin: 0;*/
+    /*width:50px;*/
+    /*padding:10em 2em 1em 70em;*/
+    width: 400px;
+    height: 280px;
+    padding: 13px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    margin-left: -200px;
+    margin-top: -200px;
+
+    background-color: rgba(190,190,190,0.8);
+
+    text-align: center;
+    border-radius: 8px;
+}
+.pp{
+    margin:10px 0;
+    height: 28px;
+    width: 80px;
+    line-height: 28px;
+    font-family:"微软雅黑";
+    /*font-weight: bold;*/
+    text-align: center;
+    color:white;
+    background-color: #515562;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.text_input{
+    width: 278px;
+    height: 28px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+}
+
+form p >*{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#login_control{
+    width:400px;
+    margin: 10px 0;
+}
+#btn_login{
+    width: 100%;
+    margin:0;
+    margin-top:10px;
+    padding:1em 0;
+    -webkit-border-radius: 3em;
+    -moz-border-radius: 3em;
+    border: #386253 solid 1px;
+    background:#515562;
+    color: white;
+    font-size: 15px;
+    /*font-weight: bold;*/
+    letter-spacing: 1em;
+}
+
+#btn_login:hover{
+    background: #586229;
+}
